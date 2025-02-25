@@ -28,3 +28,15 @@ export const addCompanyValidator = [
     body('phone', 'Phone cannot be empty').notEmpty().isMobilePhone(),
     validateErrors
 ]
+
+export const updateCompanyValidator = [
+    body('companyId', 'Company ID cannot be empty').notEmpty(),
+    body('name', 'Name cannot be a blank').optional().notEmpty(),
+    body('impact', 'Impact cannot be a blank').optional().notEmpty(),
+    body('trajectory', 'Trajectory cannot be a blank').optional().notEmpty(),
+    body('category', 'Category cannot be a blank').optional().notEmpty(),
+    body('description', 'Description cannot be a blank').optional().notEmpty(),
+    body('contanctEmail', 'Contact email cannot be a blank').optional().notEmpty().isEmail().custom(exitEmailUser),
+    body('phone', 'Phone cannot be a blank').optional().notEmpty().isMobilePhone(),
+    validateErrors
+]
