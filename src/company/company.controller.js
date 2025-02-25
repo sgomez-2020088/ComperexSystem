@@ -25,4 +25,5 @@ export const updateCompany = async (req, res) => {
         console.error(err)
         return res.status(500).send({ message: 'General error', success: false })
     }
+    
 }
