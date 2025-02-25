@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose'
 
-const companySchema = Schema({
+const companySchema = new Schema({
     name: {
         type: String,
         required: [true, 'Company name is required'],
-        maxLength: [100, `Can't exceed 100 characters`],
+        maxLength: [100, "Can't exceed 100 characters"],
         unique: true
     },
     impact: {
@@ -19,16 +19,16 @@ const companySchema = Schema({
         min: [0, 'Trajectory must be at least 0 years']
     },
     category: {
-        type: String,
-        required: [true, 'Category is required'],
-        maxLength: [50, `Can't exceed 50 characters`]
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required: [true, 'Category is required']
     },
     description: {
         type: String,
         required: [true, 'Description is required'],
-        maxLength: [500, `Can't exceed 500 characters`]
+        maxLength: [500, "Can't exceed 500 characters"]
     },
-    contanctEmail: {
+    contactEmail: {
         type: String,
         required: [true, 'Email is required'],
         unique: true
@@ -36,8 +36,8 @@ const companySchema = Schema({
     phone: {
         type: String,
         required: [true, 'Phone is required'],
-        maxLength: [13, `Can't exceed 13 characters`],
-        minLength: [8, `Phone must be at least 8 characters`]
+        maxLength: [13, "Can't exceed 13 characters"],
+        minLength: [8, "Phone must be at least 8 characters"]
     },
     status: {
         type: Boolean,
@@ -45,6 +45,7 @@ const companySchema = Schema({
         default: true
     }
 })
+
 
 companySchema.methods.toJSON = function () {
     const { __v, _id, ...company } = this.toObject()
