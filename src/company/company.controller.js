@@ -28,45 +28,29 @@ export const updateCompany = async (req, res) => {
     
 }
 
-export const getCompaniesCategory = async (req, res) => {
+
+export const getCompanies = async (req, res) => {
     try {
-        const { categoryId } = req.body
-        const companies = await Company.find({ category: categoryId })
-        .populate('category','name -_id')
-        if (companies.length === 0) {
-            return res.status(404).send({ message: 'Companies not found', success: false })
+        const { categoryId, trajectory, order } = req.body
+
+        let query = {}
+
+        if (categoryId)  query.category = categoryId
+
+        if (trajectory)  query.trajectory = { $gte: trajectory }
+
+        let companies = await Company.find(query).populate('category', 'name -_id')
+    
+        if (order) {
+            const sortOrder = order === 'desc' ? -1 : 1
+            companies = await Company.find(query)  
+                .sort({ name: sortOrder })         
+                .populate('category', 'name -_id')
         }
+
+        if (companies.length === 0) return res.status(404).send({ message: 'Companies not found', success: false })
+        
         return res.send({ message: 'Companies found', success: true, companies })
-    } catch (err) {
-        console.error(err)
-        return res.status(500).send({ message: 'General error',success: false })
-    }
-}
-
-export const getCompaniesTrajectory = async (req, res) => {
-    try {
-        const { trajectory } = req.body
-        const companies = await Company.find({ trajectory: { $gte: trajectory } })
-        if (companies.length === 0) {
-            return res.status(404).send({ message: 'Companies not found', success: false })
-        }
-        return res.send({ message: 'Companies found', success: true, companies })
-    } catch (err) {
-        console.error(err)
-        return res.status(500).send({ message: 'General error', success: false })
-    }
-}
-
-export const getCompaniesAlphabet = async (req, res) => {
-    try {
-        const { order } = req.body  
-        const sortOrder = order === 'desc' ? -1 : 1
-
-        const companies = await Company.find().sort({ name: sortOrder })
-        if (companies.length === 0) {
-            return res.status(404).send({ message: 'Companies not found', success: false })
-        }
-        return res.send({ message: 'Companies listed alphabetically', success: true, companies })
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'General error', success: false })
