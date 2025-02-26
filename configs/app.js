@@ -5,7 +5,8 @@ import helmet from 'helmet'
 import cors from 'cors' 
 import auth from '../src/auth/auth.routes.js'
 import categoryRoutes from '../src/category/category.routes.js'
-import companyRoutes from '../src/report/report.routes.js'
+import reportRoutes from '../src/report/report.routes.js'
+import companyRoutes from '../src/company/company.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 import { createDefaultAdmin} from './defData.js'
 
@@ -22,7 +23,7 @@ const routes = (app)=>{
     app.use(auth)
     app.use('/v1/company', companyRoutes)
     app.use('/v1/category', categoryRoutes)
-    app.use('/v1/report', companyRoutes)
+    app.use('/v1/report', reportRoutes)
 
 }
 
