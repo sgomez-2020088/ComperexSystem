@@ -47,8 +47,3 @@ export const login = async(req,res) =>{
         return res.status(500).send({success: false, message:'General error', err})
     }
 }
-
-export const test = (req, res)=>{
-    console.log('test is running')
-    return res.send({message: 'Test is running'})
-}
