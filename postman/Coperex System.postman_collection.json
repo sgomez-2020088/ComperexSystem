@@ -1,0 +1,594 @@
+{
+	"info": {
+		"_postman_id": "cd81378f-c72c-4242-86d8-165d3def515c",
+		"name": "Coperex System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37951897"
+	},
+	"item": [
+		{
+			"name": "COMPANY",
+			"item": [
+				{
+					"name": "Add Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "prueba",
+									"type": "text"
+								},
+								{
+									"key": "impact",
+									"value": "MEDIO",
+									"description": "BAJO, MEDIO, ALTO",
+									"type": "text"
+								},
+								{
+									"key": "trajectory",
+									"value": "23",
+									"description": "años",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67be6084b7f04001ef46d582",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Telecomunicaciones",
+									"type": "text"
+								},
+								{
+									"key": "contactEmail",
+									"value": "sergio.2211@claro.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/company/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"company",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all companies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "67be6084b7f04001ef46d582",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "trajectory",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"description": "asc / desc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/company/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"company",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "impact",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "trajectory",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "contactEmail",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/category/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"category",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "No habra nada",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "loliot",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"category",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/category/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"category",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "67be48f878fde509a4d50369",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Ya es prueba oficial",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "siuwi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/v1/category/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"category",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REPORT",
+			"item": [
+				{
+					"name": "REPORT",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3600/v1/report/reportExcel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"v1",
+								"report",
+								"reportExcel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "REPORT",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3600/v1/report/reportExcel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3600",
+									"path": [
+										"v1",
+										"report",
+										"reportExcel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Feb 2025 22:35:16 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1740610204"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=companies_report.xlsx"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000[Content_Types].xml��Mn�0\u0010��=E�-J\f]TUE¢��\u0016��\u0000�xB,\u001c���w\u0012(�* �`\u0013+�7�{��\u0019O��I�\u0018H;��Q6\u0014\t��)m\u0017������\"�\bV�q\u0016s�C\u0012��n<�y���-墎�?IIe�\rP�\n<Z�T.4\u0010�6,��r\t\u000b����,��hc\u001a[\u000fQ��X����eˏ�A\u0002\u001a\u0012��^زr\u0001�\u001b]B�\\[���\u001e\b\u0019wv\u001a���\u0001\u000b�\n    <Ih+�\u0001��w�L�\n�\u0019��\u0006\r���ȍ\u000b�/��e�\u0013)]U�\u0012�+W\r�d�\u0003��\u001a16&�֬\u0001m\u0007��NL�[F7\u000er���\u0011�}��z}�Φ\u0007Hqg�n=�δ�\\C@�\u0011\u0003\u001f��\u0007��}�]_I��i�\rS�m����<�\u0011\r��]����;�l�!�ˣ=\u0012���b;+��\u0004[v?��\u001bPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000_rels/.rels���N�0\f@�|E���nH\b��� ��&4>�$n\u001b���ă�@\f�i\u0007�q��g���<��R�\u001c\f,�\u001a\u0014\u0005�·����iq\u000f*\u000b\u0006�#\u00072p�\f��f�L#J�ɽ�Y\u0015H�\u0006z���u�=M�+�\u0014�O�iB)���v������t�ɀ愩��@ں%��1�5ln[o��a� gZ��(dL\u001d��y�W�*P��]V׻�=��HС���h\u0011S�N��Z�u\u001c�]\t�όKB���\u001c���#wY\tc�2�'7�|\u0000PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000xl/PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000xl/_rels/workbook.xml.rels���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000xl/worksheets/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ��{]\u0003\u0000\u0000t\r\u0000\u0000\u0018\u0000\u0000\u0000xl/worksheets/sheet1.xml��]o� \u0014���+,�7�?��(N�,_�6i�:�:8A��\u0005$m�뇱�\u0019\u001c1�\r���s����{�[\u0017D\u0019&eb���m�2%\u0007\\\u001e\u0013����!�-�ay�9)Qb f?.?-�\b}e'��%\fJ��'Ϋ���\n�&�B��d�\u0016��&=:��\b\u001e���\u001do:\r�\u0002��n\u001c�t�\u0007�2��5I�\u0005*ycBQ\u000e��>;�]݊t�]\u0001��zHIQ\t�\u0017�c�!Mm�H�_�%��%\u0017�~w\u0003�^�ec`_��\u0012F2>\u0011v�D�k�93G8-\u0017\u0007,VPS�(�\u0012�ɝ�c�Y.d�V��;�\u000e(��� o{��'.J\u0004l��y�K�\u0015]P.B�=U�>�\\�ɉ�\u000f\u001fk�R�+�\u0001��HI��_��u��b����\u000f��ؾЦg�I��p[Y#�Z��\t<��o\u0005~'p͂�\u0015\u0004�\u0004�(\u0000�\u0000t\u0002`\u001e!l\u0005��EG� \u001a;��\u0015��Y�ӔC�}\r9\\.(y���\u0007�`}��y}\neO�o���\u0018�x:��_im��^u\"�D�e9]8�z�6c5�pՌ��\fO�X\u000f3|5c3�\bԌ�0\u0003�\u0019�aF�f�\u0019Q��\b�\u001dZOEkf���b�^?6Ӹ�c��}�5�\u001a덢т[%��`�\u00045�{%\u0018�f�����\u001bj�Z�\u0006(�\t�kwm|\u0013\u0013%�퇝ob�`\u0012��$�\u001bF\u001a���D\u0011j;l\u001d4L4T\u001bE�\u0019n�A]�S�\u001a�}0\u0002\n�\u0007\n菦Uv\u0005\fP�\t\nh��v�l���zo����\u0001\u0013\u00140\u0002Jx\u000f��?�~zB\u0003��\u0004%lnM\u001d�2�vB�JP۳��\u0004%\u001c\u0001%�\u0007J�\u001fM�g��N%2Q��o\u001b�R�LT�A_??��J4�J|\u000f��?\u0015m�Ul��\u000f\u000en���\u0019��&*�T����D%6Qqz/�\n\u001e�7H��dV�2\tC ���W~椒�ġ|!\\�����xh#Z��͞\u0011¯\r�������\b�\u0002�����\u0015��B̅X��!\"��+,�}o\u0016��ț\t_����F��NT��ĳ.���t���ٽ��+�����\u000bPK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ�5�H�\u0001\u0000\u0000D\u0004\u0000\u0000\u0014\u0000\u0000\u0000xl/sharedStrings.xml}TMs�0\u0010��+4:��8NҴ��.���t��LÁ�V��\u0002}\u0018i\u001dH=[\u001a\u000e��ꦷ���}ָ:�c��a�ڻZ���\u0014�o��j�m���\u0014���`��Z�1���U\u0015#\t��X˞hxW\u0014Q�h!����+�>X ����C@hc�H�\u0014��|]X�N\n�GG�\n        <9�bt�׈\u0017O�r)�*ꦢ���\u0001�^܀Ū��*\u001e�C\r\b;\u001f�)~�\u0014E)�\r�\u0003\u0015q�x�\u001d!�7i�%F\u0015�@�Ef�\u001d�����MZ��s6)xK@c�PoFB%n7G�� ʴ�����K\nF�!\u0018:�g����>>\u0019u4Sަ���z5��\u001bEz�m��\u0004��^��CӴ�\u0019�1p��9;�0�e�i�o���7\u0004\u0014-���������\u0010�b�:Y����G� ����\u0016]���y�|$N9)\u0003�g1�\u000e��\u000f]��I�\u0010���Ә\u0012���I�\u001b/z�\u000b \u001c�pDxQ\u001eW\u001dwG��r�Z�o��\u000bPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/theme/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZv�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000xl/theme/theme1.xml�YMo�6\u0018��W\u0010���R'�SĎ�nm� q;�HK�Ć\u0012\u0005�N���\u001e\u0007\f\u0018�\r�\f�m�a[�\u0016إ�5�:l\u001dп�Wև)�j�&�P 98\"�<�\u0017��%i_�q\u001c2tH��<�X��5\u000b���\u001e���u8�Ҷ�T8�0�\u0011�XS\"�\u001b�\u001f]�\u001b* !A@��\u0006�X�R�mK\u0017����c\u0012��1\u0017!V0\u0014��\t|\u0004bCf7j�5;�4�P�C�zo<�.A�D���r�}\u0006\u001f���\u0019��}w�S�h�>�/���\u0004:Ĭc�.�\u001f\rɱ�\u0010�R���U��Y6��9��*�F\u001d��rjN�\u000e\u001a)U���[\u001f�֯mϵ42-\u0006h�����s�)\u0004�.�]_��\u0006�z�����g��^ͩ�\u0016(���2e���:�eJS���)��Zk�Q��4�c��뭕)�FY[�\f����\u0016(),`4:X&$�=_�9h��-3�\r�v�!\u001a��R0�\u0011�ʌ\f�#.\u0006�H�\u001e+\u001a!5��\u0018����p$(�i�\u001b\u0004k��9W.�%\n�t\u0005�U��$�P>s̛�?�y�\u001c�y����ǿ�\n            <yr��\u0017\u0013�\u0016�|����/���3����_?��� u�\u001f?��o_U ��|�ͳ?_<{��\u0017��Ԅ�\u0012x��4$\u0012�%Gh����I\u0005\u0019�3R�\u0001�%\n\u000e\u0000jB�UPBޝbf\u0004vI9�\u000f\u0004�\u000b#���Q���@L\u00145!o\u0007a\t��9�ra��v�N�i\u0012�\u0015��D\u0007�a|hT�[X��$�ܦF����L�e���'\u0011Q(y�\u000f\b1�\u001eRZ��\u000eu\u0005�|��C����\u00033�#efݢ!,��h#�z)B;\u000fP�3��mrX�B�`f\u0014JX)�7�D��l5\u000e�\u000e��U`4t*�RूE�\t��\u0011)��{bZ2�6�6e΀\u001d6\r�P��\u0011z\u0007s�C��A/�al��F�\u000e�X\u001e@�b�˕�\u000e^��d\f\u000b���@�:c�ߧ~`N���D\u0018k��r�N�\u0018�(�\u0004ʽ<��[;;���/;�Bg߂��XQ���\u0012��v�m<�v\tT�e\u0013�l�M�m\u0015�>Z�֬m�ȞJ\n�\u000f�c�ؾ�2rG��^���\u0000f�ьW�\u001a�\u0000\u001es�e�/�l�\u0004W�R\u0015�\u00078\u0006]�T�/s��D1�pe��\u0015�Wc\n��&��2\u000bx�v���7K��BR:�eI]3\u0011����󫬧ؕu֝\n��i:m=�P[\b'_k��\u001a�\u0005�E�\u0011/Y�LH�X�{��5}�\u0002�\u0011Ӽ�k�����і��{�\u0010w�P{,Z\u0018�����4\u001c\u000b�8�Xc8��c\u0018�L�4(���c�*�u��]�~�\"��5�����XH��e�\u0012g�/z\"͑��J�rQ�\u0018�Ъ�4����\u0016{i��xL\\U5���|���\u000f�#4b\u0013����V�z\u001e��m4��oeYY.�\u0016�N�+\u000b�8�YA���H\t頰#\u001d�F�U>��O�\u000b�ɹ�)��]8\u00137�ٳ\u000b\u0007\u0005�Q��\u001d�\u000b\u0015ph]q@݁��E�\u0011�CP:�i�%_�'6�C�ݥR���\u0007j��HPh�*\u0010�������\u001b�]7\u0017�����2�\u001eF䐰aR�kI0,\u0014��'�J�\\ZH�X�#�\u0001\u001c�Z／�յζ����C�T��o�j����Q�~�y�N����p�A�\u0007�\u0000T�L;'\u000f�\u001ed\u0006*�\u0012\br�J;+�br\u0004��u?\u0013a����]�\t\u0017~z��߬���J�\u0013�\u0010~���ۆ����R:\\�q��\u001e�\u0005�p\t��lJ�0̞vE���{���ɴ�d�)6\b\u0016�1��q��\u000bQ�~��\u001f\u0019�2=I(\nns\u0015n��6���X�_p6�i���<�2��?ed\u00190o��ر��Q\\ɓ�(��|�(����\u0014Eu|j\u0014�����$�J�^��\u001e���%��PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ\u0004�\u001b��\u0002\u0000\u0000`\u0006\u0000\u0000\r\u0000\u0000\u0000xl/styles.xml�U�o�0\u0010~�_a��\u001ah`I\u0004TKS�J�4���W\u0007Lb�?�q:�i���@\u0002Q�u�^b����;�Ir�J���i�V)\u000e�|��*t��.�_6�7Ǩ�T�Th�R|d\r���%�=\n��g�\"`PM����KB�b�$m�t�\u0014X*m$�p4;�ԆѲqAR���c\")W�gX��_H$5O��+����[.�=v\\\u0018�by�S�Э\u0000�m0�\u0005j�؄�\f\u001d�\"��э��\u0015�\u0012]U�`/�.Ȃ�bd\u0002ڷ1\u0005\u0011�þ�,���\r*�A�\u0014;�N��I�o*w&���+K\n-�A\u0016R1\u0007\u0013���∞�p�\u0000tBX\u000fH\u000e����=\u0010t1��\u001cn��[�\u001dH�\f��v\u0004��\u0001\u0003\u0017b\"�\u0007�\u0004n�2�r8�a�9֠N������+�;C�A\u0018M\u0002�\u0005�n�)a6O�]/z(K\u0004�,\u0004\u0018�ۻ��8����,)9�iE��\n                <E\f\u001b�-�\u0010�n��V\u0017�m��A��ޗ)���?mAа�i��㟲��\u0013��M������\u000e^�F����\r�00dP7i�E\u0003�(rc��O��\t������7�\u0003gَuwV�^�e\u0016�(YE\u000f�n��\u0014�����\u0007\u0019��>�gm\u0007�q��n=�]\u000e�ڇ�v+:\u0018��\u001fw����]\u001ezs5�f�,�\u0016�j�E���z�/�п�9�$��\u0007ax�@�l\u0004x���A�㈥xr��w�\u0003�S�0�?D����~��b:���u��Q\u0010����.ʣ��荟 �\u0004�(>ZZ.���]��LQ�$8��\br�\t2�7d�\u0000PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000docProps/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ�Q�l�\u0001\u0000\u0000-\u0003\u0000\u0000\u0010\u0000\u0000\u0000docProps/app.xml�R�n�0\f��+\f�\u001b9�P\f��bH7��b���gN�c��$�����'ۈ�=������LR]\u001f�&�0���\u0010�E.2tƗ��\u000b��u�]d��Jh��B\u001c�ĵ��6�\u0007�l����\u00105sXII��\u0016h��.u*\u001f[�Tƽ�Ue\r�x�Ңcy��W\u0012\u000f����\"L�bt\\u�Y�қ>\u001f=�!�i�#��\u001a����ޚ��W��<\u0018l��7U2ڢy���:Wr^���\u0006��XW�\u0010*�J�[�~f\u001b����xաa\u001f3����.E�\u0017\b�8�� Zp,F�X\f�\t�Q?��L5\"��\u00139��v��7�\u001c\u0004\t�\u000b�\u0014$��;�\r��j\u0003�?H��'\u001e2�YƵo\u0003�~�0���|���]\u001a���=8�c��Нu��\u0010v�\u0006\u0018O�>'ն��eZϴ��P�)tlz��\u0006���y��/�q�~��Z�_�|8�\u0013�����PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ`Fy�^\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000docProps/core.xml�R�n�0\u0010��+\"߃� P\u0015� �\u0015�\"U*U��\\{\t.�m�KC��΃\u0000*��vvf��p�\n                    <Ve�\u0003�I�\u0016$�D$\u0000ŵ��X���*�'�C�\u0004+��\u0005i��e~�q�rm��j\u0003\u0016%��\u001b)�r� ;D�R��\u000e*�&^�<�նb�-�a|�\n�I\u0014�i\u0005�\u0004CF[�Ќ�d�\u0014|�4\u0007[v\u0006�S(�\u0002��Ɠ���\b�r7\u000b:�BYIl\fܔ��Q}tr\u0014�u=�����\u001fӏ��k7j(U�*\u000e$�\u0004O�\u0005���oj�t�2z�ky�XBޥ��G���\r\u001c��\b|,�q+\r�;��Uc\u000fM��p��B��\u0018B�m�Sg�A�\u001c����\u0012�Cs��/�\r��g\u0000\u0011����\u0006O����i�\"y\u0012%�0J�d�I�t:K��g��U�ٰ\u001a\u001e����`���_�PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000h�ZZ4�h�`\u0001\u0000\u0000{\u0002\u0000\u0000\u000f\u0000\u0000\u0000xl/workbook.xml��Ko�0\f���\u0014Q�\u0016\u0018l\u0015-�^\u0012�\tMl���4\"/%)�o?���&.\\�$����ru֊\u001c�\u0007iMN�qB\t\u0018aKi�9��~��(\t���+k �\u0017\btU<,O�\u001fv�\u001e\bƛ��:F�1\u0016D\r���u`�SY�yģ߳�<�2�\u0000Q+6I�9�\\\u001a�\u00132\u000f�V�\u0014�fE���\u001e�A��C-]\u0018hZ܃��\u001f\u001a7\u0012V;D줒��A)�\"[��|���s�8�q{��Rx\u001bl\u0015ǈ����7MX��%\u0017�J*��N�s�\\�Y\u0014%���^�\beN1��'�w�\u001b��H���i2�����Ɠ\u0012*ި�EU\u0003\u001dg:�%iJ\t���7^\u001e���u\u001b۩\u000bWK�u]�>b:E�mg��@��Y\u001f��\u0010�q�AbgPO&1���Y�c\u0003Pp%PPk:�\"M&��� ��\u0005PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0001\u0000\u0000_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\b\u0003\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000)\u0004\u0000\u0000xl/worksheets/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ��{]\u0003\u0000\u0000t\r\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000U\u0004\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ�5�H�\u0001\u0000\u0000D\u0004\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0007\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\t\u0000\u0000xl/theme/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZv�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\t\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ\u0004�\u001b��\u0002\u0000\u0000`\u0006\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00001\u0010\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000h�ZZ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0012\u0000\u0000docProps/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ�Q�l�\u0001\u0000\u0000-\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0013\u0013\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ`Fy�^\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0014\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000h�ZZ4�h�`\u0001\u0000\u0000{\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000S\u0016\u0000\u0000xl/workbook.xmlPK\u0005\u0006\u0000\u0000\u0000\u0000\u0010\u0000\u0010\u0000�\u0003\u0000\u0000�\u0017\u0000\u0000\u0000\u0000"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody)\r",
+							"postman.setGlobalVariable(\"token\",data.token)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userData",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Parmas./25",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3600/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Sergio",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "Gomez",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sgomez",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sgomez-2020088@kinal.edu.gt",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "58777921",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Parmas./25",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3600/registerAdmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"registerAdmin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
