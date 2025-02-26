@@ -12,29 +12,36 @@ export const generateCompanyReport = async (req, res) => {
         const worksheet = workbook.addWorksheet('Companies Report')
 
         worksheet.columns = [
-            { header: 'Company Name', key: 'name', width: 30 },
-            { header: 'Category', key: 'category', width: 20 },
-            { header: 'Impact', key: 'impact', width: 10 },
-            { header: 'Trajectory (Years)', key: 'trajectory', width: 15 },
+            { header: 'Company Name', key: 'name', width: 40 },
+            { header: 'Category', key: 'category', width: 25 },
+            { header: 'Impact', key: 'impact', width: 14 },
+            { header: 'Trajectory', key: 'trajectory', width: 20 },
             { header: 'Description', key: 'description', width: 50 },
-            { header: 'Contact Email', key: 'contactEmail', width: 30 },
+            { header: 'Contact Email', key: 'contactEmail', width: 45},
             { header: 'Phone', key: 'phone', width: 15 },
             { header: 'Status', key: 'status', width: 10 },
         ]
 
-
         companies.forEach(company => {
+            let category = 'No category'
+            if (company.category) category = company.category.name;
+            
+        
+            let status = 'Inactive'
+            if (company.status) status = 'Active'
+            
             worksheet.addRow({
                 name: company.name,
-                category: company.category ? company.category.name : 'N/A',
+                category: category,
                 impact: company.impact,
                 trajectory: company.trajectory,
                 description: company.description,
                 contactEmail: company.contactEmail,
                 phone: company.phone,
-                status: company.status ? 'Active' : 'Inactive',
+                status: status,
             })
         })
+        
 
         worksheet.getRow(1).font = { bold: true }
 
@@ -43,13 +50,15 @@ export const generateCompanyReport = async (req, res) => {
             'Content-Type',
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         )
-        res.setHeader('Content-Disposition', 'attachment; filename=companies_report.xlsx')
+        res.setHeader(
+            'Content-Disposition',
+            'attachment; filename=companies_report.xlsx'
+        )
 
         await workbook.xlsx.write(res)
         res.end()
-
     } catch (err) {
         console.error(err)
-        return res.status(500).send({ message: 'Error generating report', err, success: false })
+        return res.status(500).send({ message: 'General error', err, success: false })
     }
 }
