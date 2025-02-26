@@ -27,7 +27,6 @@ export const validateJwt = async(req, res, next)=>{
         return res.status(401).send({message: 'Invalid token or expired'})
     }
 }
-
 export const isAdmin = async(req, res, next)=>{
     try{
         const { user } = req
@@ -48,7 +47,6 @@ export const isAdmin = async(req, res, next)=>{
         )
     }
 }
-
 
 
 
