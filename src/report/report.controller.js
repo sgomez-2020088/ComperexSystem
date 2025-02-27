@@ -1,15 +1,19 @@
 import ExcelJS from 'exceljs'
-import  Company  from '../company/company.model.js' 
+import fs from 'fs'
+import path from 'path'
+import Company from '../company/company.model.js' 
 
 export const generateCompanyReport = async (req, res) => {
     try {
         const companies = await Company.find().populate('category', 'name -_id')
 
-        if (companies.length === 0) return res.status(404).send({ message: 'No companies found', success: false })
+        if (companies.length === 0) {
+            return res.status(404).send({ message: 'No companies found', success: false })
+        }
         
         const workbook = new ExcelJS.Workbook()
-
         const worksheet = workbook.addWorksheet('Companies Report')
+        worksheet.getRow(1).font = { bold: true }
 
         worksheet.columns = [
             { header: 'Company Name', key: 'name', width: 40 },
@@ -23,12 +27,8 @@ export const generateCompanyReport = async (req, res) => {
         ]
 
         companies.forEach(company => {
-            let category = 'No category'
-            if (company.category) category = company.category.name;
-            
-        
-            let status = 'Inactive'
-            if (company.status) status = 'Active'
+            let category = company.category ? company.category.name : 'No category'
+            let status = company.status ? 'Active' : 'Inactive'
             
             worksheet.addRow({
                 name: company.name,
@@ -41,22 +41,29 @@ export const generateCompanyReport = async (req, res) => {
                 status: status,
             })
         })
+
+        const reportsFolder = path.join(process.cwd(), 'excelReport')
+
+        if (!fs.existsSync(reportsFolder)) fs.mkdirSync(reportsFolder, { recursive: true })
         
 
-        worksheet.getRow(1).font = { bold: true }
+        let fileName = 'companies_report.xlsx'
+        let filePath = path.join(reportsFolder, fileName)
+        let counter = 1
 
-    
-        res.setHeader(
-            'Content-Type',
-            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-        )
-        res.setHeader(
-            'Content-Disposition',
-            'attachment; filename=companies_report.xlsx'
-        )
+        while (fs.existsSync(filePath)) {
+            fileName = `companies_report(${counter}).xlsx`
+            filePath = path.join(reportsFolder, fileName)
+            counter++
+        }
 
-        await workbook.xlsx.write(res)
-        res.end()
+        await workbook.xlsx.writeFile(filePath)
+
+        res.status(200).send({
+            message: 'Report saved successfully',
+            file: fileName,
+            success: true
+        })
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'General error', err, success: false })
