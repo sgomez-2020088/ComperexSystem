@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cd81378f-c72c-4242-86d8-165d3def515c",
+		"_postman_id": "44fd58f6-5363-4271-9e6e-d6f40626cbad",
 		"name": "Coperex System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37951897"
+		"_exporter_id": "37952210"
 	},
 	"item": [
 		{
@@ -42,7 +42,7 @@
 								},
 								{
 									"key": "category",
-									"value": "67be6084b7f04001ef46d582",
+									"value": "67c528d27683e8026b258b24",
 									"type": "text"
 								},
 								{
@@ -143,54 +143,64 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "id",
-									"value": "",
+									"key": "companyId",
+									"value": "67c529fd7683e8026b258b34",
 									"type": "text"
 								},
 								{
 									"key": "name",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "impact",
 									"value": "",
-									"type": "text"
+									"description": "BAJO, MEDIO, ALTO",
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "trajectory",
 									"value": "",
-									"type": "text"
+									"description": "años",
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "category",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "description",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "contactEmail",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "phone",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "status",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3600/v1/category/update",
+							"raw": "http://localhost:3600/v1/company/update",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -198,7 +208,7 @@
 							"port": "3600",
 							"path": [
 								"v1",
-								"category",
+								"company",
 								"update"
 							]
 						}
@@ -302,17 +312,17 @@
 							"urlencoded": [
 								{
 									"key": "id",
-									"value": "67be48f878fde509a4d50369",
+									"value": "67c528d27683e8026b258b24",
 									"type": "text"
 								},
 								{
 									"key": "name",
-									"value": "Ya es prueba oficial",
+									"value": "Prueba",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "siuwi",
+									"value": "Prueba de cambio",
 									"type": "text"
 								}
 							]
